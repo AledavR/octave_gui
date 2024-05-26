@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-05-25 Sat 19:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interfaz grafica en MatLab</title>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Interfaz grafica en MatLab</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org90233c6">1. Interfaz grafica en MatLab</a>
+<ul>
+<li><a href="#org2655120">1.1. Main</a></li>
+<li><a href="#org2f94ef6">1.2. Menu eleccion</a></li>
+<li><a href="#org06ab979">1.3. Menu grafica</a></li>
+<li><a href="#orgf066edf">1.4. Mensaje de error</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org90233c6" class="outline-2">
+<h2 id="org90233c6"><span class="section-number-2">1.</span> Interfaz grafica en MatLab</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org2655120" class="outline-3">
+<h3 id="org2655120"><span class="section-number-3">1.1.</span> Main</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Script que usamos para correr la gui inicialmente. Define algunos valores por defecto y llama al
+menu de elección.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-octave">set(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaultlinelinewidth"</span><span style="color: #8f0075;">,</span> 2)<span style="color: #8f0075;">;</span>
+set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaulttextfontname"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"TimesNewRoman"</span>)
+set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaulttextfontsize"</span><span style="color: #8f0075;">,</span> 20)
+set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"DefaultAxesFontName"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"TimesNewRoman"</span>)
+set(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'DefaultAxesFontSize'</span><span style="color: #8f0075;">,</span> 20)
+
+clear h
+
+<span style="color: #7f0000; font-style: italic;">## </span><span style="color: #7f0000; font-style: italic;">h.menu = uifigure();</span>
+h <span style="color: #8f0075;">=</span> guidata (gcf)<span style="color: #8f0075;">;</span>
+menu_eleccion (gcf<span style="color: #8f0075;">,</span> true)<span style="color: #8f0075;">;</span>
+set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"color"</span><span style="color: #8f0075;">,</span> get(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaultuicontrolbackgroundcolor"</span>))
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2f94ef6" class="outline-3">
+<h3 id="org2f94ef6"><span class="section-number-3">1.2.</span> Menu eleccion</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Menu que permite elegir que funcionalidad del programa usaremos. Actualmente solo implementada la
+opción de Graficar funciones.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-octave">
+<span style="color: #531ab6;">function</span> <span style="color: #721045;">menu_eleccion</span>(obj<span style="color: #8f0075;">,</span> init <span style="color: #8f0075;">=</span> false)
+  clear h
+
+  h <span style="color: #8f0075;">=</span> guidata(obj)
+
+
+  h.boton_grafica <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"pushbutton"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Grafica de funciones"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"callback"</span><span style="color: #8f0075;">,</span> @menu_grafica<span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.25 0.7 0.5 0.09])<span style="color: #8f0075;">;</span>
+
+  h.boton_curvas <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"pushbutton"</span><span style="color: #8f0075;">,</span>
+                              <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
+                              <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Curvas de Bezier"</span><span style="color: #8f0075;">,</span>
+                              <span style="color: #3548cf;">"callback"</span><span style="color: #8f0075;">,</span> @actualizar_plot<span style="color: #8f0075;">,</span>
+                              <span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.25 0.5 0.5 0.09])<span style="color: #8f0075;">;</span>
+
+<span style="color: #531ab6;">end</span> 
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org06ab979" class="outline-3">
+<h3 id="org06ab979"><span class="section-number-3">1.3.</span> Menu grafica</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+El menu de grafico de funciones y sus respectivas derivadas.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-octave"><span style="color: #531ab6;">function</span> <span style="color: #721045;">menu_grafica</span> (obj<span style="color: #8f0075;">,</span> init <span style="color: #8f0075;">=</span> false)
+
+  pkg load symbolic<span style="color: #8f0075;">;</span>
+
+  h.main_frame <span style="color: #8f0075;">=</span> figure()<span style="color: #8f0075;">;</span>
+
+  h.graficar_funcion <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"pushbutton"</span><span style="color: #8f0075;">,</span>
+                                  <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
+                                  <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Derivar funci&#243;n"</span><span style="color: #8f0075;">,</span>
+                                  <span style="color: #3548cf;">"callback"</span><span style="color: #8f0075;">,</span> {@actualizar_plot}<span style="color: #8f0075;">,</span>
+                                  <span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.05 0.7 0.3 0.09])<span style="color: #8f0075;">;</span>
+
+  h.label_funcion <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"text"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Grado"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"Position"</span><span style="color: #8f0075;">,</span> [0.05 0.6 0.3 0.09])<span style="color: #8f0075;">;</span>
+
+  h.grado_derivada <span style="color: #8f0075;">=</span> uicontrol(h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"edit"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"value"</span><span style="color: #8f0075;">,</span> 0<span style="color: #8f0075;">,</span>
+                               <span style="color: #3548cf;">"Position"</span><span style="color: #8f0075;">,</span> [0.05 0.5 0.3 0.09])<span style="color: #8f0075;">;</span>
+
+
+  h.ejes <span style="color: #8f0075;">=</span> axes (<span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.5 0.25 0.4 0.7])<span style="color: #8f0075;">;</span>
+
+  guidata(h.main_frame<span style="color: #8f0075;">,</span> h)
+
+  set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"color"</span><span style="color: #8f0075;">,</span> get(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaultuicontrolbackgroundcolor"</span>))
+
+  <span style="color: #531ab6;">function</span> <span style="color: #721045;">actualizar_plot</span> (obj<span style="color: #8f0075;">,</span> init <span style="color: #8f0075;">=</span> false)
+    h <span style="color: #8f0075;">=</span> guidata(obj)<span style="color: #8f0075;">;</span>
+
+    syms x
+    y <span style="color: #8f0075;">=</span> x<span style="color: #8f0075;">^</span>3<span style="color: #8f0075;">;</span>
+    yy <span style="color: #8f0075;">=</span> y<span style="color: #8f0075;">;</span>
+
+    grado <span style="color: #8f0075;">=</span> 0 <span style="color: #8f0075;">+</span> 1<span style="color: #8f0075;">*</span>str2num(get(h.grado_derivada<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'String'</span>))
+
+    <span style="color: #531ab6;">if</span> (isempty(grado))
+      grado <span style="color: #8f0075;">=</span> 0<span style="color: #8f0075;">;</span>
+    <span style="color: #531ab6;">end</span>
+
+    dy <span style="color: #8f0075;">=</span> diff(yy<span style="color: #8f0075;">,</span>x<span style="color: #8f0075;">,</span>grado)
+    h.grafica <span style="color: #8f0075;">=</span> ezplot(dy<span style="color: #8f0075;">,</span> [<span style="color: #8f0075;">-</span>10 10])<span style="color: #8f0075;">;</span>
+    guidata (obj<span style="color: #8f0075;">,</span> h)<span style="color: #8f0075;">;</span>
+  <span style="color: #531ab6;">end</span>
+
+<span style="color: #531ab6;">end</span> 
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf066edf" class="outline-3">
+<h3 id="orgf066edf"><span class="section-number-3">1.4.</span> Mensaje de error</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Mensaje de error que se usara para informar al usuario mas adelante.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-octave"><span style="color: #531ab6;">function</span> <span style="color: #721045;">mensaje_error</span>(msg)
+  msgbox(msg<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Error"</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">"error"</span>)<span style="color: #8f0075;">;</span>
+<span style="color: #531ab6;">end</span> 
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2024-05-25 Sat 19:54</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
