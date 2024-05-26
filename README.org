@@ -9,10 +9,10 @@ Script que usamos para correr la gui inicialmente. Define algunos valores por de
 menu de elección.
 
 #+begin_src octave :results output :tangle main.m
-  set(0, "defaultlinelinewidth", 2);
-  set (0, "defaulttextfontname", "TimesNewRoman")
-  set (0, "defaulttextfontsize", 20)
-  set (0, "DefaultAxesFontName", "TimesNewRoman")
+  set(0, 'defaultlinelinewidth', 2);
+  set (0, 'defaulttextfontname', 'TimesNewRoman')
+  set (0, 'defaulttextfontsize', 20)
+  set (0, 'DefaultAxesFontName', 'TimesNewRoman')
   set(0, 'DefaultAxesFontSize', 20)
 
   clear h
@@ -20,7 +20,7 @@ menu de elección.
   ## h.menu = uifigure();
   h = guidata (gcf);
   menu_eleccion (gcf, true);
-  set (gcf, "color", get(0, "defaultuicontrolbackgroundcolor"))
+  set (gcf, 'color', get(0, 'defaultuicontrolbackgroundcolor'))
 
 #+end_src
 
@@ -34,20 +34,20 @@ opción de Graficar funciones.
   function menu_eleccion(obj, init = false)
     clear h
 
-    h = guidata(obj)
+    h = guidata(obj);
 
 
-    h.boton_grafica = uicontrol ("style", "pushbutton",
-				 "units", "normalized",
-				 "string", "Grafica de funciones",
-				 "callback", @menu_grafica,
-				 "position", [0.25 0.7 0.5 0.09]);
-    
-    h.boton_curvas = uicontrol ("style", "pushbutton",
-				"units", "normalized",
-				"string", "Curvas de Bezier",
-				"callback", @actualizar_plot,
-				"position", [0.25 0.5 0.5 0.09]);
+    h.boton_grafica = uicontrol ('style', 'pushbutton',
+				 'units', 'normalized',
+				 'string', 'Grafica de funciones',
+				 'callback', @menu_grafica,
+				 'position', [0.25 0.7 0.5 0.09]);
+
+    h.boton_curvas = uicontrol ('style', 'pushbutton',
+				'units', 'normalized',
+				'string', 'Curvas de Bezier',
+				'callback', @actualizar_plot,
+				'position', [0.25 0.5 0.5 0.09]);
 
   end 
 
@@ -64,28 +64,28 @@ El menu de grafico de funciones y sus respectivas derivadas.
 
     h.main_frame = figure();
 
-    h.graficar_funcion = uicontrol (h.main_frame,"style", "pushbutton",
-				    "units", "normalized",
-				    "string", "Derivar función",
-				    "callback", {@actualizar_plot},
-				    "position", [0.05 0.7 0.3 0.09]);
+    h.graficar_funcion = uicontrol (h.main_frame,'style', 'pushbutton',
+				    'units', 'normalized',
+				    'string', 'Derivar función',
+				    'callback', {@actualizar_plot},
+				    'position', [0.05 0.7 0.3 0.09]);
 
-    h.label_funcion = uicontrol (h.main_frame,"style", "text",
-				 "units", "normalized",
-				 "string", "Grado de derivacion",
-				 "Position", [0.05 0.6 0.3 0.09]);
+    h.label_funcion = uicontrol (h.main_frame,'style', 'text',
+				 'units', 'normalized',
+				 'string', 'Grado de derivacion',
+				 'Position', [0.05 0.6 0.3 0.09]);
 
-    h.grado_derivada = uicontrol(h.main_frame,"style", "edit",
-				 "units", "normalized",
-				 "value", 0,
-				 "Position", [0.05 0.5 0.3 0.09]);
+    h.grado_derivada = uicontrol(h.main_frame,'style', 'edit',
+				 'units', 'normalized',
+				 'value', 0,
+				 'Position', [0.05 0.5 0.3 0.09]);
 
 
-    h.ejes = axes ("position", [0.5 0.25 0.4 0.7]);
+    h.ejes = axes ('position', [0.5 0.25 0.4 0.7]);
 
     guidata(h.main_frame, h)
 
-    set (gcf, "color", get(0, "defaultuicontrolbackgroundcolor"))
+    set (gcf, 'color', get(0, 'defaultuicontrolbackgroundcolor'))
 
     function actualizar_plot (obj, init = false)
       h = guidata(obj);
@@ -104,7 +104,7 @@ El menu de grafico de funciones y sus respectivas derivadas.
       dy = diff(yy,x,grado)
 
       if (isallconstant(dy))
-	mensaje_error("La funcion no acepta ese grado de derivacion")
+	mensaje_error('La funcion no acepta ese grado de derivacion')
 	while (isallconstant(dy))
 	  dy = diff(yy,x,grado - der_fixer);
 	  der_fixer = der_fixer + 1;
@@ -124,7 +124,7 @@ Mensaje de error que se usara para informar al usuario mas adelante.
 
 #+begin_src octave :results output :tangle mensaje_error.m
   function mensaje_error(msg)
-    msgbox(msg, "Error","error");
+    msgbox(msg, 'Error','error');
   end 
 
 #+end_src

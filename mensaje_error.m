@@ -1,3 +1,3 @@
 function mensaje_error(msg)
-  msgbox(msg, "Error","error");
+  msgbox(msg, 'Error','error');
 end
