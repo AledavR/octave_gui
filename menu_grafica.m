@@ -2,7 +2,7 @@ function menu_grafica (obj, init)
 
   pkg load symbolic;
 
-  h.main_frame = figure();
+  h.main_frame = figure('name', 'Menu grafica','numbertitle','off');
 
   h.label_derivada = uicontrol (h.main_frame,'style', 'text',...
 				'units', 'normalized',...

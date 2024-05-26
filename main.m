@@ -6,7 +6,10 @@ set(0, 'DefaultAxesFontSize', 20)
 
 clear h
 
-## h.menu = uifigure();
 h = guidata (gcf);
 menu_eleccion (gcf, true);
 set (gcf, 'color', get(0, 'defaultuicontrolbackgroundcolor'))
+set (gcf, 'name', 'Menu Inicio')
+set (gcf, 'numbertitle', 'off')
+set (gcf, 'toolbar', 'none')
+set (gcf, 'menubar', 'none')

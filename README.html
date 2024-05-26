@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-05-26 Sun 15:57 -->
+<!-- 2024-05-26 Sun 16:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Proyecto GUI MatLab - Grupo 6</title>
@@ -23,24 +23,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgbf3f02d">1. Interfaz grafica en MatLab</a>
+<li><a href="#org7d50c9c">1. Interfaz grafica en MatLab</a>
 <ul>
-<li><a href="#orga030d92">1.1. Main</a></li>
-<li><a href="#org1280fa2">1.2. Menu eleccion</a></li>
-<li><a href="#org4cb9bef">1.3. Menu grafica</a></li>
-<li><a href="#org762e1c6">1.4. Mensaje de error</a></li>
+<li><a href="#org0ffe554">1.1. Main</a></li>
+<li><a href="#orgea8624c">1.2. Menu eleccion</a></li>
+<li><a href="#orgf5a563d">1.3. Menu grafica</a></li>
+<li><a href="#org8c90b78">1.4. Mensaje de error</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgbf3f02d" class="outline-2">
-<h2 id="orgbf3f02d"><span class="section-number-2">1.</span> Interfaz grafica en MatLab</h2>
+<div id="outline-container-org7d50c9c" class="outline-2">
+<h2 id="org7d50c9c"><span class="section-number-2">1.</span> Interfaz grafica en MatLab</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orga030d92" class="outline-3">
-<h3 id="orga030d92"><span class="section-number-3">1.1.</span> Main</h3>
+<div id="outline-container-org0ffe554" class="outline-3">
+<h3 id="org0ffe554"><span class="section-number-3">1.1.</span> Main</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Script que usamos para correr la gui inicialmente. Define algunos valores por defecto y llama al
@@ -59,14 +59,18 @@ clear h
 h <span style="color: #8f0075;">=</span> guidata (gcf)<span style="color: #8f0075;">;</span>
 menu_eleccion (gcf<span style="color: #8f0075;">,</span> true)<span style="color: #8f0075;">;</span>
 set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'color'</span><span style="color: #8f0075;">,</span> get(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'defaultuicontrolbackgroundcolor'</span>))
+set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'name'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Menu Inicio'</span>)
+set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'numbertitle'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'off'</span>)
+set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'toolbar'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'none'</span>)
+set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'menubar'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'none'</span>)
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1280fa2" class="outline-3">
-<h3 id="org1280fa2"><span class="section-number-3">1.2.</span> Menu eleccion</h3>
+<div id="outline-container-orgea8624c" class="outline-3">
+<h3 id="orgea8624c"><span class="section-number-3">1.2.</span> Menu eleccion</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Menu que permite elegir que funcionalidad del programa usaremos. Actualmente solo implementada la
@@ -80,18 +84,63 @@ opción de Graficar funciones.
 
   h <span style="color: #8f0075;">=</span> guidata(obj)<span style="color: #8f0075;">;</span>
 
+  <span style="color: #7f0000; font-style: italic;">%% Grupo e Integrantes</span>
+  h.grupo <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Grupo 6'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.75 0.4 0.045])<span style="color: #8f0075;">;</span>
+  h.integrantes <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Integrantes:'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.7 0.4 0.045])<span style="color: #8f0075;">;</span>
+  h.int1 <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'- Gonzales Morales Beckham Luis'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.65 0.4 0.045])<span style="color: #8f0075;">;</span>
+  h.int2 <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'- Moran Aragon Lucia Camila'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.6 0.4 0.045])<span style="color: #8f0075;">;</span>
+  h.int3 <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'- Pozo Velarde Luis Felipe'</span><span style="color: #8f0075;">,</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.55 0.4 0.045])<span style="color: #8f0075;">;</span>
+  h.int4 <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'- Ramirez Chero Alejandro David'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.5 0.4 0.045])<span style="color: #8f0075;">;</span>
+  h.int5 <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'- Saico Merma Cristhian Daniel'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.45 0.4 0.045])<span style="color: #8f0075;">;</span>
+  h.int6 <span style="color: #8f0075;">=</span> uicontrol(<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'- Vega Astocondor Diego Alonso'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                      <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span>[0.55 0.4 0.4 0.045])<span style="color: #8f0075;">;</span>
+
+
+  <span style="color: #7f0000; font-style: italic;">%% Botones</span>
+  h.titulo <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                        <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                        <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Elija una opcion'</span><span style="color: #8f0075;">,...</span>
+                        <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.05 0.8 0.5 0.09])<span style="color: #8f0075;">;</span>
 
   h.boton_grafica <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'pushbutton'</span><span style="color: #8f0075;">,...</span>
                                <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
                                <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Grafica de funciones'</span><span style="color: #8f0075;">,...</span>
                                <span style="color: #3548cf;">'callback'</span><span style="color: #8f0075;">,</span> @menu_grafica<span style="color: #8f0075;">,...</span>
-                               <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.25 0.7 0.5 0.09])<span style="color: #8f0075;">;</span>
+                               <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.05 0.7 0.5 0.09])<span style="color: #8f0075;">;</span>
 
   h.boton_curvas <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'pushbutton'</span><span style="color: #8f0075;">,...</span>
                               <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
                               <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Curvas de Bezier'</span><span style="color: #8f0075;">,...</span>
                               <span style="color: #3548cf;">'callback'</span><span style="color: #8f0075;">,</span> @actualizar_plot<span style="color: #8f0075;">,...</span>
-                              <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.25 0.5 0.5 0.09])<span style="color: #8f0075;">;</span>
+                              <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.05 0.6 0.5 0.09])<span style="color: #8f0075;">;</span>
+
+  <span style="color: #7f0000; font-style: italic;">% Si necesitan a&#241;adir nuevos botones copien un boton de arriba y reduzcan en</span>
+  <span style="color: #7f0000; font-style: italic;">% 0.1 el segundo elemento del vector posicion, en string poner una</span>
+  <span style="color: #7f0000; font-style: italic;">% descripcion de su menu y en callback el nombre de su funcion con un arroba</span>
+  <span style="color: #7f0000; font-style: italic;">% al inicio.</span>
 
 <span style="color: #531ab6;">end</span> 
 
@@ -100,8 +149,8 @@ opción de Graficar funciones.
 </div>
 </div>
 
-<div id="outline-container-org4cb9bef" class="outline-3">
-<h3 id="org4cb9bef"><span class="section-number-3">1.3.</span> Menu grafica</h3>
+<div id="outline-container-orgf5a563d" class="outline-3">
+<h3 id="orgf5a563d"><span class="section-number-3">1.3.</span> Menu grafica</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 El menu de grafico de funciones y sus respectivas derivadas.
@@ -112,7 +161,7 @@ El menu de grafico de funciones y sus respectivas derivadas.
 
   pkg load symbolic<span style="color: #8f0075;">;</span>
 
-  h.main_frame <span style="color: #8f0075;">=</span> figure()<span style="color: #8f0075;">;</span>
+  h.main_frame <span style="color: #8f0075;">=</span> figure(<span style="color: #3548cf;">'name'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Menu grafica'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'numbertitle'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'off'</span>)<span style="color: #8f0075;">;</span>
 
   h.label_derivada <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
                                 <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
@@ -217,8 +266,8 @@ El menu de grafico de funciones y sus respectivas derivadas.
 </div>
 </div>
 
-<div id="outline-container-org762e1c6" class="outline-3">
-<h3 id="org762e1c6"><span class="section-number-3">1.4.</span> Mensaje de error</h3>
+<div id="outline-container-org8c90b78" class="outline-3">
+<h3 id="org8c90b78"><span class="section-number-3">1.4.</span> Mensaje de error</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Mensaje de error que se usara para informar al usuario mas adelante.
@@ -237,7 +286,7 @@ Mensaje de error que se usara para informar al usuario mas adelante.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Grupo 6</p>
-<p class="date">Created: 2024-05-26 Sun 15:57</p>
+<p class="date">Created: 2024-05-26 Sun 16:45</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
