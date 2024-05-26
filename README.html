@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-05-25 Sat 20:42 -->
+<!-- 2024-05-26 Sun 15:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Proyecto GUI MatLab - Grupo 6</title>
@@ -23,24 +23,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5a2b90b">1. Interfaz grafica en MatLab</a>
+<li><a href="#orgbf3f02d">1. Interfaz grafica en MatLab</a>
 <ul>
-<li><a href="#org55e4b42">1.1. Main</a></li>
-<li><a href="#org0bc2feb">1.2. Menu eleccion</a></li>
-<li><a href="#org3450c23">1.3. Menu grafica</a></li>
-<li><a href="#org4164af6">1.4. Mensaje de error</a></li>
+<li><a href="#orga030d92">1.1. Main</a></li>
+<li><a href="#org1280fa2">1.2. Menu eleccion</a></li>
+<li><a href="#org4cb9bef">1.3. Menu grafica</a></li>
+<li><a href="#org762e1c6">1.4. Mensaje de error</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5a2b90b" class="outline-2">
-<h2 id="org5a2b90b"><span class="section-number-2">1.</span> Interfaz grafica en MatLab</h2>
+<div id="outline-container-orgbf3f02d" class="outline-2">
+<h2 id="orgbf3f02d"><span class="section-number-2">1.</span> Interfaz grafica en MatLab</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org55e4b42" class="outline-3">
-<h3 id="org55e4b42"><span class="section-number-3">1.1.</span> Main</h3>
+<div id="outline-container-orga030d92" class="outline-3">
+<h3 id="orga030d92"><span class="section-number-3">1.1.</span> Main</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Script que usamos para correr la gui inicialmente. Define algunos valores por defecto y llama al
@@ -48,26 +48,25 @@ menu de elección.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-octave">set(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaultlinelinewidth"</span><span style="color: #8f0075;">,</span> 2)<span style="color: #8f0075;">;</span>
-set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaulttextfontname"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"TimesNewRoman"</span>)
-set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaulttextfontsize"</span><span style="color: #8f0075;">,</span> 20)
-set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"DefaultAxesFontName"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"TimesNewRoman"</span>)
+<pre class="src src-octave">set(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'defaultlinelinewidth'</span><span style="color: #8f0075;">,</span> 2)<span style="color: #8f0075;">;</span>
+set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'defaulttextfontname'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'TimesNewRoman'</span>)
+set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'defaulttextfontsize'</span><span style="color: #8f0075;">,</span> 20)
+set (0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'DefaultAxesFontName'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'TimesNewRoman'</span>)
 set(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'DefaultAxesFontSize'</span><span style="color: #8f0075;">,</span> 20)
 
 clear h
 
-<span style="color: #7f0000; font-style: italic;">## </span><span style="color: #7f0000; font-style: italic;">h.menu = uifigure();</span>
 h <span style="color: #8f0075;">=</span> guidata (gcf)<span style="color: #8f0075;">;</span>
 menu_eleccion (gcf<span style="color: #8f0075;">,</span> true)<span style="color: #8f0075;">;</span>
-set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"color"</span><span style="color: #8f0075;">,</span> get(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaultuicontrolbackgroundcolor"</span>))
+set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'color'</span><span style="color: #8f0075;">,</span> get(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'defaultuicontrolbackgroundcolor'</span>))
 
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0bc2feb" class="outline-3">
-<h3 id="org0bc2feb"><span class="section-number-3">1.2.</span> Menu eleccion</h3>
+<div id="outline-container-org1280fa2" class="outline-3">
+<h3 id="org1280fa2"><span class="section-number-3">1.2.</span> Menu eleccion</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Menu que permite elegir que funcionalidad del programa usaremos. Actualmente solo implementada la
@@ -76,23 +75,23 @@ opción de Graficar funciones.
 
 <div class="org-src-container">
 <pre class="src src-octave">
-<span style="color: #531ab6;">function</span> <span style="color: #721045;">menu_eleccion</span>(obj<span style="color: #8f0075;">,</span> init <span style="color: #8f0075;">=</span> false)
+<span style="color: #531ab6;">function</span> <span style="color: #721045;">menu_eleccion</span>(obj<span style="color: #8f0075;">,</span> init)
   clear h
 
-  h <span style="color: #8f0075;">=</span> guidata(obj)
+  h <span style="color: #8f0075;">=</span> guidata(obj)<span style="color: #8f0075;">;</span>
 
 
-  h.boton_grafica <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"pushbutton"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Grafica de funciones"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"callback"</span><span style="color: #8f0075;">,</span> @menu_grafica<span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.25 0.7 0.5 0.09])<span style="color: #8f0075;">;</span>
+  h.boton_grafica <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'pushbutton'</span><span style="color: #8f0075;">,...</span>
+                               <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                               <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Grafica de funciones'</span><span style="color: #8f0075;">,...</span>
+                               <span style="color: #3548cf;">'callback'</span><span style="color: #8f0075;">,</span> @menu_grafica<span style="color: #8f0075;">,...</span>
+                               <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.25 0.7 0.5 0.09])<span style="color: #8f0075;">;</span>
 
-  h.boton_curvas <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"pushbutton"</span><span style="color: #8f0075;">,</span>
-                              <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
-                              <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Curvas de Bezier"</span><span style="color: #8f0075;">,</span>
-                              <span style="color: #3548cf;">"callback"</span><span style="color: #8f0075;">,</span> @actualizar_plot<span style="color: #8f0075;">,</span>
-                              <span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.25 0.5 0.5 0.09])<span style="color: #8f0075;">;</span>
+  h.boton_curvas <span style="color: #8f0075;">=</span> uicontrol (<span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'pushbutton'</span><span style="color: #8f0075;">,...</span>
+                              <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                              <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Curvas de Bezier'</span><span style="color: #8f0075;">,...</span>
+                              <span style="color: #3548cf;">'callback'</span><span style="color: #8f0075;">,</span> @actualizar_plot<span style="color: #8f0075;">,...</span>
+                              <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.25 0.5 0.5 0.09])<span style="color: #8f0075;">;</span>
 
 <span style="color: #531ab6;">end</span> 
 
@@ -101,67 +100,113 @@ opción de Graficar funciones.
 </div>
 </div>
 
-<div id="outline-container-org3450c23" class="outline-3">
-<h3 id="org3450c23"><span class="section-number-3">1.3.</span> Menu grafica</h3>
+<div id="outline-container-org4cb9bef" class="outline-3">
+<h3 id="org4cb9bef"><span class="section-number-3">1.3.</span> Menu grafica</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 El menu de grafico de funciones y sus respectivas derivadas.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-octave"><span style="color: #531ab6;">function</span> <span style="color: #721045;">menu_grafica</span> (obj<span style="color: #8f0075;">,</span> init <span style="color: #8f0075;">=</span> false)
+<pre class="src src-octave"><span style="color: #531ab6;">function</span> <span style="color: #721045;">menu_grafica</span> (obj<span style="color: #8f0075;">,</span> init)
 
   pkg load symbolic<span style="color: #8f0075;">;</span>
 
   h.main_frame <span style="color: #8f0075;">=</span> figure()<span style="color: #8f0075;">;</span>
 
-  h.graficar_funcion <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"pushbutton"</span><span style="color: #8f0075;">,</span>
-                                  <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
-                                  <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Derivar funci&#243;n"</span><span style="color: #8f0075;">,</span>
-                                  <span style="color: #3548cf;">"callback"</span><span style="color: #8f0075;">,</span> {@actualizar_plot}<span style="color: #8f0075;">,</span>
-                                  <span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.05 0.7 0.3 0.09])<span style="color: #8f0075;">;</span>
+  h.label_derivada <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                                <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                                <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Funcion'</span><span style="color: #8f0075;">,...</span>
+                                <span style="color: #3548cf;">'Position'</span><span style="color: #8f0075;">,</span> [0.05 0.9 0.2 0.09])<span style="color: #8f0075;">;</span>
 
-  h.label_funcion <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"text"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"string"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Grado de derivacion"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"Position"</span><span style="color: #8f0075;">,</span> [0.05 0.6 0.3 0.09])<span style="color: #8f0075;">;</span>
-
-  h.grado_derivada <span style="color: #8f0075;">=</span> uicontrol(h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">"style"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"edit"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"units"</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"normalized"</span><span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"value"</span><span style="color: #8f0075;">,</span> 0<span style="color: #8f0075;">,</span>
-                               <span style="color: #3548cf;">"Position"</span><span style="color: #8f0075;">,</span> [0.05 0.5 0.3 0.09])<span style="color: #8f0075;">;</span>
+  h.funcion <span style="color: #8f0075;">=</span> uicontrol(h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'edit'</span><span style="color: #8f0075;">,...</span>
+                        <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                        <span style="color: #3548cf;">'Position'</span><span style="color: #8f0075;">,</span> [0.05 0.8 0.2 0.09])<span style="color: #8f0075;">;</span>
 
 
-  h.ejes <span style="color: #8f0075;">=</span> axes (<span style="color: #3548cf;">"position"</span><span style="color: #8f0075;">,</span> [0.5 0.25 0.4 0.7])<span style="color: #8f0075;">;</span>
+  h.graficar_funcion <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'pushbutton'</span><span style="color: #8f0075;">,...</span>
+                                  <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                                  <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Graficar'</span><span style="color: #8f0075;">,...</span>
+                                  <span style="color: #3548cf;">'callback'</span><span style="color: #8f0075;">,</span> {@actualizar_plot}<span style="color: #8f0075;">,...</span>
+                                  <span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.05 0.7 0.2 0.09])<span style="color: #8f0075;">;</span>
+
+  h.label_derivada <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                                <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                                <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Orden derivacion'</span><span style="color: #8f0075;">,...</span>
+                                <span style="color: #3548cf;">'Position'</span><span style="color: #8f0075;">,</span> [0.05 0.6 0.2 0.09])<span style="color: #8f0075;">;</span>
+
+  h.grado_derivada <span style="color: #8f0075;">=</span> uicontrol(h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'edit'</span><span style="color: #8f0075;">,...</span>
+                               <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                               <span style="color: #3548cf;">'value'</span><span style="color: #8f0075;">,</span> 0<span style="color: #8f0075;">,...</span>
+                               <span style="color: #3548cf;">'Position'</span><span style="color: #8f0075;">,</span> [0.05 0.5 0.2 0.09])<span style="color: #8f0075;">;</span>
+
+
+  h.label_intervalo <span style="color: #8f0075;">=</span> uicontrol (h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'text'</span><span style="color: #8f0075;">,...</span>
+                                 <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                                 <span style="color: #3548cf;">'string'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Intervalo'</span><span style="color: #8f0075;">,...</span>
+                                 <span style="color: #3548cf;">'Position'</span><span style="color: #8f0075;">,</span> [0.05 0.4 0.2 0.09])<span style="color: #8f0075;">;</span>
+
+  h.intervalo1 <span style="color: #8f0075;">=</span> uicontrol(h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'edit'</span><span style="color: #8f0075;">,...</span>
+                           <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                           <span style="color: #3548cf;">'value'</span><span style="color: #8f0075;">,</span> <span style="color: #8f0075;">-</span>2<span style="color: #8f0075;">,...</span>
+                           <span style="color: #3548cf;">'Position'</span><span style="color: #8f0075;">,</span> [0.05 0.3 0.1 0.09])<span style="color: #8f0075;">;</span>
+
+  h.intervalo2 <span style="color: #8f0075;">=</span> uicontrol(h.main_frame<span style="color: #8f0075;">,</span><span style="color: #3548cf;">'style'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'edit'</span><span style="color: #8f0075;">,...</span>
+                           <span style="color: #3548cf;">'units'</span><span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'normalized'</span><span style="color: #8f0075;">,...</span>
+                           <span style="color: #3548cf;">'value'</span><span style="color: #8f0075;">,</span>2<span style="color: #8f0075;">,...</span>
+                           <span style="color: #3548cf;">'Position'</span><span style="color: #8f0075;">,</span> [0.15 0.3 0.1 0.09])<span style="color: #8f0075;">;</span>
+
+  h.ejes <span style="color: #8f0075;">=</span> axes (<span style="color: #3548cf;">'position'</span><span style="color: #8f0075;">,</span> [0.5 0.2 0.4 0.7])<span style="color: #8f0075;">;</span>
 
   guidata(h.main_frame<span style="color: #8f0075;">,</span> h)
 
-  set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"color"</span><span style="color: #8f0075;">,</span> get(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"defaultuicontrolbackgroundcolor"</span>))
+  set (gcf<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'color'</span><span style="color: #8f0075;">,</span> get(0<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'defaultuicontrolbackgroundcolor'</span>))
 
-  <span style="color: #531ab6;">function</span> <span style="color: #721045;">actualizar_plot</span> (obj<span style="color: #8f0075;">,</span> init <span style="color: #8f0075;">=</span> false)
+  <span style="color: #531ab6;">function</span> <span style="color: #721045;">actualizar_plot</span> (obj<span style="color: #8f0075;">,</span> init)
     h <span style="color: #8f0075;">=</span> guidata(obj)<span style="color: #8f0075;">;</span>
 
     syms x
-    y <span style="color: #8f0075;">=</span> x<span style="color: #8f0075;">^</span>3<span style="color: #8f0075;">;</span>
-    yy <span style="color: #8f0075;">=</span> y<span style="color: #8f0075;">;</span>
+    y <span style="color: #8f0075;">=</span>  get(h.funcion<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'String'</span>)<span style="color: #8f0075;">;</span>
+
+    <span style="color: #531ab6;">if</span> (isempty(y))
+      yy <span style="color: #8f0075;">=</span> sym(<span style="color: #3548cf;">'x^3'</span>)<span style="color: #8f0075;">;</span>
+    <span style="color: #531ab6;">else</span>
+      yy <span style="color: #8f0075;">=</span> sym(y)<span style="color: #8f0075;">;</span>
+    <span style="color: #531ab6;">end</span>
+
     der_fixer <span style="color: #8f0075;">=</span> 1<span style="color: #8f0075;">;</span>
 
-    grado <span style="color: #8f0075;">=</span> 0 <span style="color: #8f0075;">+</span> 1<span style="color: #8f0075;">*</span>str2num(get(h.grado_derivada<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'String'</span>))
+    grado <span style="color: #8f0075;">=</span> 0 <span style="color: #8f0075;">+</span> 1<span style="color: #8f0075;">*</span>str2num(get(h.grado_derivada<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'String'</span>))<span style="color: #8f0075;">;</span>
+
+    int_inicio <span style="color: #8f0075;">=</span>  str2num(get(h.intervalo1<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'String'</span>))<span style="color: #8f0075;">;</span>
+    int_fin <span style="color: #8f0075;">=</span>  str2num(get(h.intervalo2<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'String'</span>))<span style="color: #8f0075;">;</span>
+
+    <span style="color: #531ab6;">if</span> (isempty(int_inicio))
+      int_inicio <span style="color: #8f0075;">=</span> get(h.intervalo1<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'value'</span>)<span style="color: #8f0075;">;</span>
+    <span style="color: #531ab6;">end</span>
+
+    <span style="color: #531ab6;">if</span> (isempty(int_fin))
+      int_fin <span style="color: #8f0075;">=</span> get(h.intervalo2<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'value'</span>)<span style="color: #8f0075;">;</span>
+    <span style="color: #531ab6;">end</span>
+
+    <span style="color: #531ab6;">if</span> (int_inicio <span style="color: #8f0075;">&gt;</span> int_fin)
+      [int_inicio int_fin] <span style="color: #8f0075;">=</span> deal(int_fin<span style="color: #8f0075;">,</span> int_inicio)<span style="color: #8f0075;">;</span>
+    <span style="color: #531ab6;">end</span> 
 
     <span style="color: #531ab6;">if</span> (isempty(grado))
       grado <span style="color: #8f0075;">=</span> 0<span style="color: #8f0075;">;</span>
     <span style="color: #531ab6;">end</span>
 
-    dy <span style="color: #8f0075;">=</span> diff(yy<span style="color: #8f0075;">,</span>x<span style="color: #8f0075;">,</span>grado)
+    dy <span style="color: #8f0075;">=</span> diff(yy<span style="color: #8f0075;">,</span>x<span style="color: #8f0075;">,</span>grado)<span style="color: #8f0075;">;</span>
 
     <span style="color: #531ab6;">if</span> (isallconstant(dy))
-      mensaje_error(<span style="color: #3548cf;">"La funcion no acepta ese grado de derivacion"</span>)
+      mensaje_error(<span style="color: #3548cf;">'La funcion no acepta ese orden de derivacion'</span>)
       <span style="color: #531ab6;">while</span> (isallconstant(dy))
         dy <span style="color: #8f0075;">=</span> diff(yy<span style="color: #8f0075;">,</span>x<span style="color: #8f0075;">,</span>grado <span style="color: #8f0075;">-</span> der_fixer)<span style="color: #8f0075;">;</span>
         der_fixer <span style="color: #8f0075;">=</span> der_fixer <span style="color: #8f0075;">+</span> 1<span style="color: #8f0075;">;</span>
       <span style="color: #531ab6;">end</span>
     <span style="color: #531ab6;">end</span>
-    h.grafica <span style="color: #8f0075;">=</span> ezplot(dy<span style="color: #8f0075;">,</span> [<span style="color: #8f0075;">-</span>10 10])<span style="color: #8f0075;">;</span>
+    h.grafica <span style="color: #8f0075;">=</span> ezplot(dy<span style="color: #8f0075;">,</span> [int_inicio int_fin])<span style="color: #8f0075;">;</span>
     guidata (obj<span style="color: #8f0075;">,</span> h)<span style="color: #8f0075;">;</span>
   <span style="color: #531ab6;">end</span>
 
@@ -172,8 +217,8 @@ El menu de grafico de funciones y sus respectivas derivadas.
 </div>
 </div>
 
-<div id="outline-container-org4164af6" class="outline-3">
-<h3 id="org4164af6"><span class="section-number-3">1.4.</span> Mensaje de error</h3>
+<div id="outline-container-org762e1c6" class="outline-3">
+<h3 id="org762e1c6"><span class="section-number-3">1.4.</span> Mensaje de error</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Mensaje de error que se usara para informar al usuario mas adelante.
@@ -181,7 +226,7 @@ Mensaje de error que se usara para informar al usuario mas adelante.
 
 <div class="org-src-container">
 <pre class="src src-octave"><span style="color: #531ab6;">function</span> <span style="color: #721045;">mensaje_error</span>(msg)
-  msgbox(msg<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">"Error"</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">"error"</span>)<span style="color: #8f0075;">;</span>
+  msgbox(msg<span style="color: #8f0075;">,</span> <span style="color: #3548cf;">'Error'</span><span style="color: #8f0075;">,</span><span style="color: #3548cf;">'error'</span>)<span style="color: #8f0075;">;</span>
 <span style="color: #531ab6;">end</span> 
 
 </pre>
@@ -192,7 +237,7 @@ Mensaje de error que se usara para informar al usuario mas adelante.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Grupo 6</p>
-<p class="date">Created: 2024-05-25 Sat 20:42</p>
+<p class="date">Created: 2024-05-26 Sun 15:57</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
