@@ -1,5 +1,5 @@
-#+TITLE: Interfaz grafica en MatLab
-#+AUTHORS: Grupo ??
+#+TITLE: Proyecto GUI MatLab - Grupo 6
+#+AUTHOR: Grupo 6
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * Interfaz grafica en MatLab
