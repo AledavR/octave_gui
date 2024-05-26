@@ -17,7 +17,6 @@ menu de elección.
 
   clear h
 
-  ## h.menu = uifigure();
   h = guidata (gcf);
   menu_eleccion (gcf, true);
   set (gcf, 'color', get(0, 'defaultuicontrolbackgroundcolor'))
@@ -43,10 +42,10 @@ opción de Graficar funciones.
 				 'callback', @menu_grafica,...
 				 'position', [0.25 0.7 0.5 0.09]);
 
-    h.boton_curvas = uicontrol ('style', 'pushbutton',
-				'units', 'normalized',
-				'string', 'Curvas de Bezier',
-				'callback', @actualizar_plot,
+    h.boton_curvas = uicontrol ('style', 'pushbutton',...
+				'units', 'normalized',...
+				'string', 'Curvas de Bezier',...
+				'callback', @actualizar_plot,...
 				'position', [0.25 0.5 0.5 0.09]);
 
   end 
@@ -89,7 +88,7 @@ El menu de grafico de funciones y sus respectivas derivadas.
 
     set (gcf, 'color', get(0, 'defaultuicontrolbackgroundcolor'))
 
-    function actualizar_plot (obj, init = false)
+    function actualizar_plot (obj, init)
       h = guidata(obj);
 
       syms x

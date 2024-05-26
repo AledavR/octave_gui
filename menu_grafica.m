@@ -27,7 +27,7 @@ function menu_grafica (obj, init)
 
   set (gcf, 'color', get(0, 'defaultuicontrolbackgroundcolor'))
 
-  function actualizar_plot (obj, init = false)
+  function actualizar_plot (obj, init)
     h = guidata(obj);
 
     syms x
