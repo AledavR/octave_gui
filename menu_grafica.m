@@ -1,23 +1,23 @@
-function menu_grafica (obj, init = false)
+function menu_grafica (obj, init)
 
   pkg load symbolic;
 
   h.main_frame = figure();
 
-  h.graficar_funcion = uicontrol (h.main_frame,'style', 'pushbutton',
-				  'units', 'normalized',
-				  'string', 'Derivar función',
-				  'callback', {@actualizar_plot},
+  h.graficar_funcion = uicontrol (h.main_frame,'style', 'pushbutton',...
+				  'units', 'normalized',...
+				  'string', 'Derivar función',...
+				  'callback', {@actualizar_plot},...
 				  'position', [0.05 0.7 0.3 0.09]);
 
-  h.label_funcion = uicontrol (h.main_frame,'style', 'text',
-			       'units', 'normalized',
-			       'string', 'Grado de derivacion',
+  h.label_funcion = uicontrol (h.main_frame,'style', 'text',...
+			       'units', 'normalized',...
+			       'string', 'Grado de derivacion',...
 			       'Position', [0.05 0.6 0.3 0.09]);
 
-  h.grado_derivada = uicontrol(h.main_frame,'style', 'edit',
-			       'units', 'normalized',
-			       'value', 0,
+  h.grado_derivada = uicontrol(h.main_frame,'style', 'edit',...
+			       'units', 'normalized',...
+			       'value', 0,...
 			       'Position', [0.05 0.5 0.3 0.09]);
 
 
