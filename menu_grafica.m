@@ -12,7 +12,7 @@ function menu_grafica (obj, init = false)
 
   h.label_funcion = uicontrol (h.main_frame,"style", "text",
 			       "units", "normalized",
-			       "string", "Grado",
+			       "string", "Grado de derivacion",
 			       "Position", [0.05 0.6 0.3 0.09]);
 
   h.grado_derivada = uicontrol(h.main_frame,"style", "edit",
@@ -33,6 +33,7 @@ function menu_grafica (obj, init = false)
     syms x
     y = x^3;
     yy = y;
+    der_fixer = 1;
 
     grado = 0 + 1*str2num(get(h.grado_derivada, 'String'))
 
@@ -41,6 +42,14 @@ function menu_grafica (obj, init = false)
     end
 
     dy = diff(yy,x,grado)
+
+    if (isallconstant(dy))
+      mensaje_error("La funcion no acepta ese grado de derivacion")
+      while (isallconstant(dy))
+	dy = diff(yy,x,grado - der_fixer);
+	der_fixer = der_fixer + 1;
+      end
+    end
     h.grafica = ezplot(dy, [-10 10]);
     guidata (obj, h);
   end
